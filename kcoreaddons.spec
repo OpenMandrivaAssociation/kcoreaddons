@@ -13,6 +13,10 @@ License: GPL
 Group: System/Libraries
 BuildRequires: cmake
 BuildRequires: pkgconfig(Qt5Core)
+BuildRequires: pkgconfig(Qt5Test)
+BuildRequires: pkgconfig(Qt5Widgets)
+BuildRequires: extra-cmake-modules5
+BuildRequires: shared-mime-info
 BuildRequires: qmake5
 Requires: %{libname} = %{EVRD}
 
@@ -22,6 +26,7 @@ The KDE Frameworks 5 Core Library addons
 %package -n %{libname}
 Summary: The KDE Frameworks 5 Core Library addons
 Group: System/Libraries
+Requires: %{name} = %{EVRD}
 
 %description -n %{libname}
 The KDE Frameworks 5 Core Library addons
