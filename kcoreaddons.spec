@@ -5,7 +5,7 @@
 
 Name: kcoreaddons
 Version: 4.95.0
-Release: 1
+Release: 2
 Source0: http://ftp5.gwdg.de/pub/linux/kde/unstable/frameworks/4.95.0/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 Core Library addons
 URL: http://kde.org/
