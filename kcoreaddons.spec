@@ -1,12 +1,12 @@
-%define major 4
+%define major 5
 %define libname %mklibname KF5CoreAddons %{major}
 %define devname %mklibname KF5CoreAddons -d
 %define debug_package %{nil}
 
 Name: kcoreaddons
-Version: 4.96.0
+Version: 4.97.0
 Release: 1
-Source0: http://ftp5.gwdg.de/pub/linux/kde/unstable/frameworks/4.95.0/%{name}-%{version}.tar.xz
+Source0: http://ftp5.gwdg.de/pub/linux/kde/unstable/frameworks/%{version}/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 Core Library addons
 URL: http://kde.org/
 License: GPL
@@ -55,7 +55,8 @@ mv %{buildroot}%{_prefix}/mkspecs %{buildroot}%{_libdir}/qt5
 %{_datadir}/mime/packages/kde5.xml
 
 %files -n %{libname}
-%{_libdir}/*.so.%{major}*
+%{_libdir}/*.so.%{major}
+%{_libdir}/*.so.%{version}
 
 %files -n %{devname}
 %{_includedir}/*
