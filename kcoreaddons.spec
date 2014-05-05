@@ -7,6 +7,7 @@ Name: kcoreaddons
 Version: 4.98.0
 Release: 1
 Source0: http://ftp5.gwdg.de/pub/linux/kde/unstable/frameworks/%{version}/%{name}-%{version}.tar.xz
+Patch0: kcoreaddons-4.98.0-gcc-4.9.patch
 Summary: The KDE Frameworks 5 Core Library addons
 URL: http://kde.org/
 License: GPL
@@ -41,6 +42,7 @@ Development files (Headers etc.) for %{name}.
 
 %prep
 %setup -q
+%apply_patches
 %cmake
 
 %build
