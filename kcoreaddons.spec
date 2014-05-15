@@ -4,10 +4,9 @@
 %define debug_package %{nil}
 
 Name: kcoreaddons
-Version: 4.98.0
+Version: 4.99.0
 Release: 1
 Source0: http://ftp5.gwdg.de/pub/linux/kde/unstable/frameworks/%{version}/%{name}-%{version}.tar.xz
-Patch0: kcoreaddons-4.98.0-gcc-4.9.patch
 Summary: The KDE Frameworks 5 Core Library addons
 URL: http://kde.org/
 License: GPL
@@ -42,7 +41,6 @@ Development files (Headers etc.) for %{name}.
 
 %prep
 %setup -q
-%apply_patches
 %cmake
 
 %build
@@ -53,7 +51,15 @@ Development files (Headers etc.) for %{name}.
 mkdir -p %{buildroot}%{_libdir}/qt5
 mv %{buildroot}%{_prefix}/mkspecs %{buildroot}%{_libdir}/qt5
 
-%files
+L="`pwd`/kcoreaddons%{major}_qt.lang"
+cd %{buildroot}
+for i in .%{_datadir}/locale/*/LC_MESSAGES/*.qm; do
+	LNG=`echo $i |cut -d/ -f5`
+	echo -n "%lang($LNG) " >>$L
+	echo $i |cut -b2- >>$L
+done
+
+%files -f kcoreaddons%{major}_qt.lang
 %{_datadir}/mime/packages/kde5.xml
 
 %files -n %{libname}
