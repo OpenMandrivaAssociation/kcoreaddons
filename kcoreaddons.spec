@@ -8,6 +8,7 @@ Version: 5.0.0
 Release: 1
 Source0: http://ftp5.gwdg.de/pub/linux/kde/unstable/frameworks/%{version}/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 Core Library addons
+Patch0: kcoreaddons-5.0.0-compile-with-clang-on-32bit.patch
 URL: http://kde.org/
 License: GPL
 Group: System/Libraries
@@ -41,6 +42,7 @@ Development files (Headers etc.) for %{name}.
 
 %prep
 %setup -q
+%apply_patches
 %cmake
 
 %build
