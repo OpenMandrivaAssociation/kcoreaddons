@@ -4,7 +4,7 @@
 %define debug_package %{nil}
 
 Name: kcoreaddons
-Version: 5.1.0
+Version: 5.2.0
 Release: 1
 Source0: http://ftp5.gwdg.de/pub/linux/kde/unstable/frameworks/%{version}/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 Core Library addons
@@ -62,6 +62,7 @@ for i in .%{_datadir}/locale/*/LC_MESSAGES/*.qm; do
 done
 
 %files -f kcoreaddons%{major}_qt.lang
+%{_bindir}/desktoptojson
 %{_datadir}/mime/packages/kde5.xml
 
 %files -n %{libname}
