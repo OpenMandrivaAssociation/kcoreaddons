@@ -61,6 +61,7 @@ done
 %files -f kcoreaddons%{major}_qt.lang
 %{_bindir}/desktoptojson
 %{_datadir}/mime/packages/kde5.xml
+%{_datadir}/kf5
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
