@@ -17,8 +17,10 @@ BuildRequires: cmake(ECM)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Test)
 BuildRequires: pkgconfig(Qt5Widgets)
+BuildRequires: pkgconfig(gamin)
 BuildRequires: shared-mime-info
 Requires: %{libname} = %{EVRD}
+Requires: accountsservice
 
 %description
 The KDE Frameworks 5 Core Library addons
