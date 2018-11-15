@@ -5,8 +5,8 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kcoreaddons
-Version:	5.51.0
-Release:	2
+Version:	5.52.0
+Release:	1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 Core Library addons
 URL: http://kde.org/
@@ -63,6 +63,7 @@ done
 %{_bindir}/desktoptojson
 %{_datadir}/mime/packages/kde5.xml
 %{_datadir}/kf5
+%{_sysconfdir}/xdg/*.categories
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
