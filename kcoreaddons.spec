@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kcoreaddons
-Version:	5.59.0
+Version:	5.60.0
 Release:	1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 Core Library addons
@@ -85,11 +85,15 @@ done
 
 [ -s %{buildroot}%{python_sitearch}/PyKF5/__init__.py ] || rm -f %{buildroot}%{python_sitearch}/PyKF5/__init__.py
 
+# Let's not ship py2 crap unless and until something still needs it...
+rm -rf %{buildroot}%{_libdir}/python2*
+
+
 %files -f kcoreaddons%{major}_qt.lang
 %{_bindir}/desktoptojson
 %{_datadir}/mime/packages/kde5.xml
 %{_datadir}/kf5
-%{_sysconfdir}/xdg/*.categories
+%{_datadir}/qlogging-categories5/*.categories
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
