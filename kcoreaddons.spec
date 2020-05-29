@@ -6,7 +6,7 @@
 
 Name: kcoreaddons
 Version:	5.70.0
-Release:	1
+Release:	2
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 Core Library addons
 URL: http://kde.org/
@@ -67,7 +67,7 @@ Python bindings for %{name}
 
 %prep
 %autosetup -p1
-%cmake_kde5
+%cmake_kde5 -D_KDE4_DEFAULT_HOME_POSTFIX=4
 
 %build
 %ninja -C build
@@ -75,7 +75,7 @@ Python bindings for %{name}
 %install
 %ninja_install -C build
 
-L="`pwd`/kcoreaddons%{major}_qt.lang"
+L="$(pwd)/kcoreaddons%{major}_qt.lang"
 cd %{buildroot}
 for i in .%{_datadir}/locale/*/LC_MESSAGES/*.qm; do
 	LNG=`echo $i |cut -d/ -f5`
