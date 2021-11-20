@@ -4,10 +4,9 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kcoreaddons
-Version:	5.87.0
+Version:	5.88.0
 Release:	1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
-Patch0: kcoreaddons-5.85.0-workaround-python-build.patch
 Summary: The KDE Frameworks 5 Core Library addons
 URL: http://kde.org/
 License: GPL
@@ -98,6 +97,7 @@ rm -rf %{buildroot}%{_libdir}/python2*
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
+%{_libdir}/qt5/plugins/namespace/jsonplugin_cmake_macro.so
 
 %files -n %{devname}
 %{_includedir}/*
