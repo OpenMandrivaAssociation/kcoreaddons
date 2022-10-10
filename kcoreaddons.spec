@@ -3,6 +3,11 @@
 %define devname %mklibname KF5CoreAddons -d
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
+# This is only required in a BSD context, but rpm's
+# cmake dependency generator doesn't understand
+# conditionals well enough
+%global __requires_exclude ^.*procstat.*
+
 Name: kcoreaddons
 Version:	5.99.0
 Release:	1
