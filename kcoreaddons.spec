@@ -9,7 +9,7 @@
 %global __requires_exclude ^.*procstat.*
 
 Name: kcoreaddons
-Version:	5.107.0
+Version:	5.108.0
 Release:	1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 Core Library addons
